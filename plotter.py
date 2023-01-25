@@ -35,6 +35,11 @@ def sanitize_string(function_string):
             raise ValueError(
                 f"{variable} is not supported or is not a valid variable (Only X functions are supported)."
             )
+    for operator in re.findall('[^a-zA-Z0-9_]+', function_string):
+        if operator != '+' and operator != '-' and operator != '*' and operator != '/' and operator != '^' and operator != '(' and operator != ')' and operator != '.' and operator != '**' and operator != '//':
+            raise ValueError(
+                f"{operator} is not supported or is not a valid operator."
+            )
     function_string = function_string.replace('^', '**')
     return function_string
 

@@ -45,15 +45,15 @@ class MainWindow(QMainWindow):
             function_string = self.function_input.text()
             min_value = float(self.min_input.text())
             max_value = float(self.max_input.text())
-            _, _, figure, e = Plotter(min_value, max_value, function_string)
-            if e is not None:
-                self.error_label.setText(str(e))
+            _, _, figure, err1 = Plotter(min_value, max_value, function_string)
+            if err1 is not None:
+                self.error_label.setText(str(err1))
                 return
             self.plot_canvas.figure.clear()
             self.plot_canvas.figure = figure
             self.plot_canvas.draw()
             self.error_label.setText("")
-        except e:
+        except Exception as e:
             self.error_label.setText(str(e))
             self.plot_canvas.figure.clear()
             return
