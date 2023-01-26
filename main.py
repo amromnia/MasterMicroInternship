@@ -1,5 +1,6 @@
-from plotter import *
 from GUI import *
+
+# start the GUI and check for errors
 def main():
     try:
         start()

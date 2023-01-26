@@ -8,7 +8,7 @@ from matplotlib.figure import Figure
 
 matplotlib.use('Qt5Agg')
 class MainWindow(QMainWindow):
-
+    # Main Window
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Mathematical Function Plotter")
@@ -36,6 +36,8 @@ class MainWindow(QMainWindow):
         container = QWidget()
         container.setLayout(layout)
         self.setCentralWidget(container)
+
+    # Plot Function, does appropriate error checking then calls plotter
     def plot_function(self):
         if self.inputs_empty():
             self.error_label.setText("Inputs Cannot Be Empty")

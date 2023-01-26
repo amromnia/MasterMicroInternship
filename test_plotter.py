@@ -26,7 +26,7 @@ def test_string_compilation_correct_string():
     assert compile_function_string(string) == compile(string, '<string>', 'eval')
 
 def test_string_compilation_unsupported_variable():
-    # Test that unsupported variables raise an error
+    # Test that unsupported variables raise an error in the compilation
     string = "x**2+2*y"
     with pytest.raises(ValueError):
         compile_function_string(string)
@@ -40,7 +40,7 @@ def test_plotter_correct_string():
     assert e == None
 
 def test_plotter_unsupported_variable():
-    # Test that unsupported variables raise an error
+    # Test that unsupported variables raise an error in the main Plotter function
     min_value = 0
     max_value = 10
     function_string = "x**2+2*y"
@@ -48,7 +48,7 @@ def test_plotter_unsupported_variable():
     assert e != None
 
 def test_plotter_unsupported_operator():
-    # Test that unsupported operators raise an error
+    # Test that unsupported operators raise an error in the main Plotter function
     min_value = 0
     max_value = 10
     function_string = "x**2+2%y"
@@ -56,7 +56,7 @@ def test_plotter_unsupported_operator():
     assert e != None
 
 def test_plotter_min_value_greater_than_max_value():
-    # Test that min value greater than max value raises an error
+    # Test that min value greater than max value raises an error in the main Plotter function
     min_value = 10
     max_value = 0
     function_string = "x**2"
@@ -64,7 +64,7 @@ def test_plotter_min_value_greater_than_max_value():
     assert e != None
 
 def test_plotter_max_value_too_big():
-    # Test that max value too big raises an error
+    # Test that max value too big raises an error in the main Plotter function
     min_value = 0
     max_value = 10
     function_string = "x**2"
